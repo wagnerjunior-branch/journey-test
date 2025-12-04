@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Jedi Order</title>
+    <script>
+        // Load Branch
+        (function (b, r, a, n, c, h, _, s, d, k) { if (!b[n] || !b[n]._q) { for (; s < _.length;)c(h, _[s++]); d = r.createElement(a); d.async = 1; d.src = "https://cdn.branch.io/branch-latest.min.js"; k = r.getElementsByTagName(a)[0]; k.parentNode.insertBefore(d, k); b[n] = h } })(window, document, "script", "branch", function (b, r) { b[r] = function () { b._q.push([r, arguments]) } }, { _q: [], _v: 1 }, "addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
+        branch.setAPIUrl("https://api.stage.branch.io");
+        branch.init('key_live_dDtcRXlH0lXtx3Q2RbSCPfoizFm1GYnF', function (err, data) {
+            console.log(err, data);
+        });
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
-        
+
         * {
             font-family: 'Orbitron', sans-serif;
         }
-        
+
         body {
             background: #000;
             overflow-x: hidden;
         }
-        
+
         .stars {
             position: fixed;
             top: 0;
@@ -25,7 +34,7 @@
             height: 100%;
             z-index: 0;
         }
-        
+
         .star {
             position: absolute;
             width: 2px;
@@ -34,124 +43,148 @@
             border-radius: 50%;
             animation: twinkle 3s infinite;
         }
-        
+
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
-        
+
         @keyframes crawl {
             0% {
                 transform: perspective(500px) rotateX(25deg) translateY(100%);
                 opacity: 1;
             }
+
             100% {
                 transform: perspective(500px) rotateX(25deg) translateY(-200%);
                 opacity: 0;
             }
         }
-        
+
         .crawl-text {
             animation: crawl 20s linear;
         }
-        
+
         .saber-glow {
             box-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 60px #00d4ff;
         }
-        
+
         .jedi-text {
             text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
         }
-        
+
         .fade-in {
             animation: fadeIn 2s ease-in;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
-        
+
         .slide-up {
             animation: slideUp 1s ease-out;
         }
-        
+
         @keyframes slideUp {
             from {
                 transform: translateY(50px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-        
+
         .pulse-glow {
             animation: pulseGlow 2s ease-in-out infinite;
         }
-        
+
         @keyframes pulseGlow {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff;
             }
+
             50% {
                 box-shadow: 0 0 30px #00d4ff, 0 0 60px #00d4ff, 0 0 80px #00d4ff;
             }
         }
     </style>
 </head>
+
 <body class="text-white">
     <!-- Background Stars -->
     <div class="stars" id="stars"></div>
-    
+
     <!-- Main Content -->
     <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-12">
-        
+
         <!-- Logo/Main Title -->
         <div class="text-center mb-12 fade-in">
             <h1 class="text-6xl md:text-8xl font-black mb-4 jedi-text">
                 JEDI ORDER
             </h1>
-            <div class="w-64 h-1 mx-auto bg-gradient-to-r from-transparent via-blue-400 to-transparent saber-glow mb-8"></div>
+            <div class="w-64 h-1 mx-auto bg-gradient-to-r from-transparent via-blue-400 to-transparent saber-glow mb-8">
+            </div>
             <p class="text-2xl md:text-3xl text-yellow-400 font-bold">
                 The Force Calls You
             </p>
         </div>
-        
+
         <!-- Propaganda Card -->
         <div class="max-w-4xl w-full slide-up">
-            <div class="bg-gradient-to-br from-gray-900 via-gray-800 to-black border-2 border-blue-500 rounded-lg p-8 md:p-12 shadow-2xl pulse-glow">
-                
+            <div
+                class="bg-gradient-to-br from-gray-900 via-gray-800 to-black border-2 border-blue-500 rounded-lg p-8 md:p-12 shadow-2xl pulse-glow">
+
                 <!-- Presentation Section -->
                 <div class="text-center mb-10">
                     <p class="text-lg md:text-xl mb-4 text-gray-300 leading-relaxed">
-                        The Jedi Order seeks individuals with Force potential to protect peace and justice throughout the galaxy.
+                        The Jedi Order seeks individuals with Force potential to protect peace and justice throughout
+                        the galaxy.
                     </p>
                     <p class="text-lg md:text-xl mb-6 text-gray-300 leading-relaxed">
                         If you feel the Force flowing through you, this is your calling.
                     </p>
                 </div>
-                
+
                 <!-- Benefits -->
                 <div class="grid md:grid-cols-3 gap-6 mb-10">
-                    <div class="bg-gray-900 border border-blue-500 rounded-lg p-6 text-center hover:border-blue-400 transition-all">
+                    <div
+                        class="bg-gray-900 border border-blue-500 rounded-lg p-6 text-center hover:border-blue-400 transition-all">
                         <div class="text-4xl mb-4">⚔️</div>
                         <h3 class="text-xl font-bold mb-2 text-blue-400">Jedi Training</h3>
                         <p class="text-gray-400">Master the lightsaber and the arts of the Force</p>
                     </div>
-                    <div class="bg-gray-900 border border-blue-500 rounded-lg p-6 text-center hover:border-blue-400 transition-all">
+                    <div
+                        class="bg-gray-900 border border-blue-500 rounded-lg p-6 text-center hover:border-blue-400 transition-all">
                         <div class="text-4xl mb-4">🌌</div>
                         <h3 class="text-xl font-bold mb-2 text-blue-400">Galactic Travel</h3>
                         <p class="text-gray-400">Explore distant worlds and alien cultures</p>
                     </div>
-                    <div class="bg-gray-900 border border-blue-500 rounded-lg p-6 text-center hover:border-blue-400 transition-all">
+                    <div
+                        class="bg-gray-900 border border-blue-500 rounded-lg p-6 text-center hover:border-blue-400 transition-all">
                         <div class="text-4xl mb-4">🛡️</div>
                         <h3 class="text-xl font-bold mb-2 text-blue-400">Protect Peace</h3>
                         <p class="text-gray-400">Defend the innocent and maintain balance</p>
                     </div>
                 </div>
-                
+
                 <!-- Quote -->
                 <div class="mt-10 text-center">
                     <p class="text-xl md:text-2xl italic text-gray-400">
@@ -160,19 +193,19 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Footer -->
         <div class="mt-12 text-center text-gray-500 text-sm">
             <p>© Jedi Order - Protecting the galaxy since 25,000 BBY</p>
         </div>
     </div>
-    
+
     <script>
         // Create background stars
         function createStars() {
             const starsContainer = document.getElementById('stars');
             const numberOfStars = 200;
-            
+
             for (let i = 0; i < numberOfStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
@@ -183,9 +216,9 @@
                 starsContainer.appendChild(star);
             }
         }
-        
+
         // Parallax effect on stars when scrolling
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrolled = window.pageYOffset;
             const stars = document.querySelectorAll('.star');
             stars.forEach((star, index) => {
@@ -193,7 +226,7 @@
                 star.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
-        
+
         // Typewriter effect on title (optional)
         function typeWriter(element, text, speed = 100) {
             let i = 0;
@@ -207,22 +240,23 @@
             }
             type();
         }
-        
+
         // Initialize
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             createStars();
         });
-        
+
         // Add hover effect on cards
         document.querySelectorAll('.bg-gray-900.border').forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-5px)';
                 this.style.transition = 'transform 0.3s';
             });
-            card.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0)';
             });
         });
     </script>
 </body>
+
 </html>
